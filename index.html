@@ -299,99 +299,23 @@ main section {
 }
 
 
-/* Enhanced dynamic coding platform visuals */
-.platform-grid.live .platform-card {
-  animation: platformLift 0.8s ease both;
+/* Clear project preview images */
+.project-preview {
+  background: #0f1015;
 }
-.platform-grid.live .platform-card:nth-child(2) {
-  animation-delay: 0.12s;
+.project-preview img {
+  object-fit: cover;
+  object-position: center;
+  filter: none;
 }
-.platform-card {
-  background:
-    radial-gradient(circle at top right, rgba(232,185,35,0.08), transparent 28%),
-    linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0)),
-    var(--surface);
+.project-preview:hover img {
+  transform: scale(1.015);
+  filter: brightness(1.03);
 }
-.platform-card::after {
-  content: "";
-  position: absolute;
-  inset: auto -15% -60% auto;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(232,185,35,0.10), transparent 65%);
-  pointer-events: none;
-  filter: blur(4px);
-  animation: platformGlow 5s ease-in-out infinite;
-}
-.platform-card.cf::after {
-  background: radial-gradient(circle, rgba(30,141,219,0.12), transparent 65%);
-}
-.p-stat {
-  position: relative;
-  overflow: hidden;
-}
-.p-stat::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  transform: translateX(-125%);
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
-}
-.platform-grid.live .p-stat::before {
-  animation: statShine 1.3s ease 0.35s;
-}
-.platform-grid.live .p-stat {
-  animation: statPop 0.6s ease both;
-}
-.platform-grid.live .platform-card:nth-child(1) .p-stat:nth-child(1) { animation-delay: 0.10s; }
-.platform-grid.live .platform-card:nth-child(1) .p-stat:nth-child(2) { animation-delay: 0.18s; }
-.platform-grid.live .platform-card:nth-child(1) .p-stat:nth-child(3) { animation-delay: 0.26s; }
-.platform-grid.live .platform-card:nth-child(2) .p-stat:nth-child(1) { animation-delay: 0.20s; }
-.platform-grid.live .platform-card:nth-child(2) .p-stat:nth-child(2) { animation-delay: 0.28s; }
-.platform-grid.live .platform-card:nth-child(2) .p-stat:nth-child(3) { animation-delay: 0.36s; }
 
-.platform-grid.live .rank-badge {
-  animation: badgeBounce 0.7s ease 0.45s both;
-}
-.diff-track {
-  position: relative;
-}
-.diff-track::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  transform: translateX(-120%);
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.10), transparent);
-  pointer-events: none;
-}
-.diff-fill {
-  width: 0;
-}
-.platform-grid.live .diff-track::after {
-  animation: statShine 1.2s ease 0.8s;
-}
-@keyframes platformLift {
-  from { opacity: 0; transform: translateY(30px) scale(0.98); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-@keyframes statPop {
-  from { opacity: 0; transform: translateY(12px) scale(0.96); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-@keyframes badgeBounce {
-  0% { opacity: 0; transform: translateY(12px) scale(0.9); }
-  70% { opacity: 1; transform: translateY(-2px) scale(1.04); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
-}
-@keyframes statShine {
-  from { transform: translateX(-125%); }
-  to { transform: translateX(130%); }
-}
-@keyframes platformGlow {
-  0%, 100% { transform: scale(0.95); opacity: 0.85; }
-  50% { transform: scale(1.08); opacity: 1; }
-}
+/* Live-data status */
+.update-note.live-ok { color: #54d98c; }
+.update-note.live-fallback { color: var(--muted); }
 
 </style>
 </head>
@@ -438,15 +362,15 @@ main section {
     </div>
     <div class="stats-grid">
       <div class="stat-card">
-        <div class="value" data-target="509">0</div>
+        <div class="value" id="totalSolvedCounter" data-target="517">0</div>
         <div class="label">Problems Solved</div>
       </div>
       <div class="stat-card">
-        <div class="value" data-target="226">0</div>
+        <div class="value" id="lcSolvedCounter" data-target="227">0</div>
         <div class="label">LeetCode Solved</div>
       </div>
       <div class="stat-card">
-        <div class="value" data-target="283">0</div>
+        <div class="value" id="cfSolvedCounter" data-target="290">0</div>
         <div class="label">CF Problems</div>
       </div>
       <div class="stat-card">
@@ -460,7 +384,7 @@ main section {
       <span class="section-num">02</span>
       <h2 class="section-title">Coding Platforms</h2>
     </div>
-    <div class="platform-grid" id="platform-grid">
+    <div class="platform-grid">
       <div class="platform-card lc">
         <div class="platform-header">
           <div class="platform-name">
@@ -470,15 +394,15 @@ main section {
           <span class="platform-handle">@XYHU42fpHy</span>
         </div>
         <div class="platform-stats">
-          <div class="p-stat"><div class="val" data-target="226">0</div><div class="lab">Solved</div></div>
-          <div class="p-stat"><div class="val">719K</div><div class="lab">Rank</div></div>
-          <div class="p-stat"><div class="val">—</div><div class="lab">Contests</div></div>
+          <div class="p-stat"><div class="val" id="lcSolvedStat" data-target="227">0</div><div class="lab">Solved</div></div>
+          <div class="p-stat"><div class="val" id="lcRankStat">719K</div><div class="lab">Rank</div></div>
+          <div class="p-stat"><div class="val" id="lcHardStat" data-target="1">0</div><div class="lab">Hard</div></div>
         </div>
-        <div class="diff-row"><span class="diff-name">Easy</span><div class="diff-track"><div class="diff-fill diff-e" data-width="78"></div></div><span class="diff-num">177</span></div>
-        <div class="diff-row"><span class="diff-name">Medium</span><div class="diff-track"><div class="diff-fill diff-m" data-width="22"></div></div><span class="diff-num">49</span></div>
-        <div class="diff-row"><span class="diff-name">Hard</span><div class="diff-track"><div class="diff-fill diff-h" data-width="0"></div></div><span class="diff-num">0</span></div>
+        <div class="diff-row"><span class="diff-name">Easy</span><div class="diff-track"><div class="diff-fill diff-e" id="lcEasyBar" data-width="78"></div></div><span class="diff-num" id="lcEasyNum">177</span></div>
+        <div class="diff-row"><span class="diff-name">Medium</span><div class="diff-track"><div class="diff-fill diff-m" id="lcMediumBar" data-width="21.6"></div></div><span class="diff-num" id="lcMediumNum">49</span></div>
+        <div class="diff-row"><span class="diff-name">Hard</span><div class="diff-track"><div class="diff-fill diff-h" id="lcHardBar" data-width="1"></div></div><span class="diff-num" id="lcHardNum">1</span></div>
         <div class="platform-footer">
-          <span class="update-note">Primary: C++, MySQL</span>
+          <span class="update-note" id="lcLiveNote">Live stats loading…</span>
           <a href="https://leetcode.com/u/XYHU42fpHy/" target="_blank" rel="noopener">Profile →</a>
         </div>
       </div>
@@ -491,15 +415,15 @@ main section {
           <span class="platform-handle">@Hasan_22</span>
         </div>
         <div class="platform-stats">
-          <div class="p-stat"><div class="val" data-target="738">0</div><div class="lab">Rating</div></div>
-          <div class="p-stat"><div class="val" data-target="283">0</div><div class="lab">Solved</div></div>
-          <div class="p-stat"><div class="val" data-target="869">0</div><div class="lab">Max Rating</div></div>
+          <div class="p-stat"><div class="val" id="cfRatingStat" data-target="738">0</div><div class="lab">Rating</div></div>
+          <div class="p-stat"><div class="val" id="cfSolvedStat" data-target="290">0</div><div class="lab">Solved</div></div>
+          <div class="p-stat"><div class="val" id="cfMaxRatingStat" data-target="869">0</div><div class="lab">Max Rating</div></div>
         </div>
         <div style="text-align:center;">
-          <span class="rank-badge r-newbie">Newbie (738)</span>
+          <span class="rank-badge r-newbie" id="cfRankBadge">Newbie (738)</span>
         </div>
         <div class="platform-footer">
-          <span class="update-note">Climbing steadily</span>
+          <span class="update-note" id="cfLiveNote">Live stats loading…</span>
           <a href="https://codeforces.com/profile/Hasan_22" target="_blank" rel="noopener">Profile →</a>
         </div>
       </div>
@@ -648,31 +572,70 @@ main section {
   </div>
 </footer><script>
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add("visible"); });
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("visible");
+  });
 }, { threshold: 0.1 });
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-function animateCounters() {
-  document.querySelectorAll("[data-target]").forEach(counter => {
-    const target = parseInt(counter.dataset.target);
-    const duration = 1500, start = performance.now();
-    function update(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      counter.textContent = Math.floor(eased * target).toLocaleString();
-      if (progress < 1) requestAnimationFrame(update);
-    }
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { requestAnimationFrame(update); obs.unobserve(counter); } });
-    }, { threshold: 0.5 });
-    obs.observe(counter);
-  });
+
+function numericText(el) {
+  return Number(String(el.textContent).replace(/[^0-9.-]/g, "")) || 0;
 }
-animateCounters();
+
+function animateNumber(el, target, duration = 900) {
+  if (!el || !Number.isFinite(Number(target))) return;
+  target = Number(target);
+  const startValue = numericText(el);
+  const start = performance.now();
+  el.dataset.target = String(target);
+
+  function frame(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    const value = Math.round(startValue + (target - startValue) * eased);
+    el.textContent = value.toLocaleString();
+    if (p < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
+window.setLiveCounter = function(id, value) {
+  const el = document.getElementById(id);
+  if (!el || value == null || !Number.isFinite(Number(value))) return;
+  animateNumber(el, Number(value));
+};
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      animateNumber(el, Number(el.dataset.target || 0), 1200);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.45 });
+
+document.querySelectorAll("[data-target]").forEach(el => counterObserver.observe(el));
+
+window.setDifficulty = function(id, count, total) {
+  const num = document.getElementById(id + "Num");
+  const bar = document.getElementById(id + "Bar");
+  if (num) num.textContent = Number(count).toLocaleString();
+  if (bar) {
+    const pct = total > 0 ? (Number(count) / Number(total)) * 100 : 0;
+    const visiblePct = count > 0 ? Math.max(1.2, pct) : 0;
+    bar.dataset.width = String(visiblePct);
+    requestAnimationFrame(() => { bar.style.width = visiblePct + "%"; });
+  }
+};
+
 const barObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const fill = entry.target, width = fill.dataset.width;
-      requestAnimationFrame(() => { fill.style.width = width + "%"; });
+      const fill = entry.target;
+      requestAnimationFrame(() => {
+        fill.style.width = (fill.dataset.width || "0") + "%";
+      });
       barObserver.unobserve(fill);
     }
   });
@@ -730,17 +693,146 @@ document.querySelectorAll(".diff-fill").forEach(bar => barObserver.observe(bar))
 
 <script>
 (function () {
-  const grid = document.getElementById("platform-grid");
-  if (!grid) return;
-  const liveObs = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        grid.classList.add("live");
-        liveObs.unobserve(grid);
+  const state = { lc: 227, cf: 290 };
+
+  function refreshTotal() {
+    setLiveCounter("totalSolvedCounter", state.lc + state.cf);
+  }
+
+  async function getJSON(url, timeoutMs = 15000) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, { cache: "no-store", signal: controller.signal });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return await res.json();
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  function firstNumber(obj, keys) {
+    for (const key of keys) {
+      const value = obj?.[key];
+      if (value !== undefined && value !== null && Number.isFinite(Number(value))) {
+        return Number(value);
       }
-    });
-  }, { threshold: 0.25 });
-  liveObs.observe(grid);
+    }
+    return null;
+  }
+
+  function compactRank(n) {
+    if (!Number.isFinite(Number(n))) return "—";
+    n = Number(n);
+    if (n >= 1000000) return (n / 1000000).toFixed(n >= 10000000 ? 0 : 1).replace(".0","") + "M";
+    if (n >= 1000) return Math.round(n / 1000) + "K";
+    return String(n);
+  }
+
+  async function loadLeetCode() {
+    const note = document.getElementById("lcLiveNote");
+    const endpoints = [
+      "/live/leetcode-primary",
+      "/live/leetcode-backup",
+      "/live/leetcode-backup2"
+    ];
+
+    let data = null;
+    for (const endpoint of endpoints) {
+      try {
+        const candidate = await getJSON(endpoint);
+        const total = firstNumber(candidate, [
+          "totalSolved","solvedProblem","solved","totalSolvedProblems","total"
+        ]);
+        if (total !== null) {
+          data = candidate;
+          break;
+        }
+      } catch (_) {}
+    }
+
+    if (!data) {
+      note.textContent = "Snapshot shown • live source unavailable";
+      note.classList.add("live-fallback");
+      return;
+    }
+
+    const total = firstNumber(data, ["totalSolved","solvedProblem","solved","totalSolvedProblems","total"]);
+    const easy = firstNumber(data, ["easySolved","easy","easySolvedCount","easyProblemsSolved"]);
+    const medium = firstNumber(data, ["mediumSolved","medium","mediumSolvedCount","mediumProblemsSolved"]);
+    const hard = firstNumber(data, ["hardSolved","hard","hardSolvedCount","hardProblemsSolved"]);
+    const ranking = firstNumber(data, ["ranking","rank","globalRanking"]);
+
+    if (total !== null) {
+      state.lc = total;
+      setLiveCounter("lcSolvedCounter", total);
+      setLiveCounter("lcSolvedStat", total);
+      refreshTotal();
+    }
+    if (hard !== null) setLiveCounter("lcHardStat", hard);
+    if (ranking !== null) document.getElementById("lcRankStat").textContent = compactRank(ranking);
+
+    if (easy !== null && total !== null) setDifficulty("lcEasy", easy, total);
+    if (medium !== null && total !== null) setDifficulty("lcMedium", medium, total);
+    if (hard !== null && total !== null) setDifficulty("lcHard", hard, total);
+
+    note.textContent = "Live profile data ✓";
+    note.classList.add("live-ok");
+  }
+
+  function cfProblemKey(sub) {
+    const p = sub?.problem || {};
+    if (p.contestId != null) return `${p.contestId}:${p.index}`;
+    return `${p.problemsetName || "ps"}:${p.index || ""}:${p.name || ""}`;
+  }
+
+  async function loadCodeforces() {
+    const note = document.getElementById("cfLiveNote");
+
+    try {
+      const status = await getJSON("/live/cf-status", 20000);
+      if (status?.status === "OK" && Array.isArray(status.result)) {
+        const solved = new Set();
+        status.result.forEach(sub => {
+          if (sub.verdict === "OK") solved.add(cfProblemKey(sub));
+        });
+        if (solved.size) {
+          state.cf = solved.size;
+          setLiveCounter("cfSolvedCounter", solved.size);
+          setLiveCounter("cfSolvedStat", solved.size);
+          refreshTotal();
+        }
+      }
+
+      // Codeforces public API asks clients not to exceed one call per 2 seconds.
+      await new Promise(resolve => setTimeout(resolve, 2200));
+
+      const info = await getJSON("/live/cf-info");
+      if (info?.status === "OK" && Array.isArray(info.result) && info.result[0]) {
+        const user = info.result[0];
+        const rating = Number(user.rating);
+        const maxRating = Number(user.maxRating);
+        if (Number.isFinite(rating)) setLiveCounter("cfRatingStat", rating);
+        if (Number.isFinite(maxRating)) setLiveCounter("cfMaxRatingStat", maxRating);
+
+        const rankText = user.rank
+          ? user.rank.charAt(0).toUpperCase() + user.rank.slice(1)
+          : "Codeforces";
+        const badge = document.getElementById("cfRankBadge");
+        badge.textContent = Number.isFinite(rating) ? `${rankText} (${rating})` : rankText;
+      }
+
+      note.textContent = "Live profile data ✓";
+      note.classList.add("live-ok");
+    } catch (_) {
+      note.textContent = "Snapshot shown • live source unavailable";
+      note.classList.add("live-fallback");
+    }
+  }
+
+  // Load both independently so one source failing never blocks the other.
+  loadLeetCode();
+  loadCodeforces();
 })();
 </script>
 

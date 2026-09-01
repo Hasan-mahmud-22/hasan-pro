@@ -1,6 +1,26 @@
 {
   "rewrites": [
     {
+      "source": "/live/leetcode-primary",
+      "destination": "https://leetcode-api-faisalshohag.vercel.app/XYHU42fpHy"
+    },
+    {
+      "source": "/live/leetcode-backup",
+      "destination": "https://alfa-leetcode-api.onrender.com/XYHU42fpHy/solved"
+    },
+    {
+      "source": "/live/leetcode-backup2",
+      "destination": "https://leetcode-stats-api.herokuapp.com/XYHU42fpHy"
+    },
+    {
+      "source": "/live/cf-status",
+      "destination": "https://codeforces.com/api/user.status?handle=Hasan_22&from=1&count=10000"
+    },
+    {
+      "source": "/live/cf-info",
+      "destination": "https://codeforces.com/api/user.info?handles=Hasan_22"
+    },
+    {
       "source": "/game",
       "destination": "https://hasan-portfolio-game.vercel.app/"
     },
