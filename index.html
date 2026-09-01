@@ -234,7 +234,7 @@ nav.menu-open .nav-toggle-lines::after { top: 6px; transform: rotate(-45deg); }
   display: block;
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 190px;
   overflow: hidden;
   border-radius: 11px;
   border: 1px solid var(--line);
@@ -244,13 +244,15 @@ nav.menu-open .nav-toggle-lines::after { top: 6px; transform: rotate(-45deg); }
 }
 .project-preview iframe {
   position: absolute;
-  inset: 0;
-  width: 200%;
-  height: 200%;
+  top: 0;
+  left: 0;
+  width: 1280px;
+  height: 800px;
   border: 0;
-  transform: scale(0.5);
+  transform: scale(0.36);
   transform-origin: top left;
   pointer-events: none;
+  overflow: hidden;
   background: #101015;
 }
 .project-preview::after {
@@ -260,26 +262,34 @@ nav.menu-open .nav-toggle-lines::after { top: 6px; transform: rotate(-45deg); }
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
   pointer-events: none;
 }
-.preview-badge {
-  position: absolute;
-  left: 0.65rem;
-  bottom: 0.6rem;
-  z-index: 2;
-  padding: 0.28rem 0.55rem;
-  border-radius: 999px;
-  background: rgba(12,12,15,0.82);
-  backdrop-filter: blur(8px);
-  color: var(--ink);
-  border: 1px solid var(--line-strong);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.02em;
-}
 .project-preview:hover {
   border-color: rgba(232,185,35,0.35);
 }
 
+/* Slightly different framing per project */
+.project-preview.preview-tic iframe {
+  transform: scale(0.40);
+  width: 1000px;
+  height: 650px;
+}
+.project-preview.preview-rps iframe {
+  transform: scale(0.34);
+  width: 1300px;
+  height: 850px;
+}
+.project-preview.preview-interactive iframe {
+  transform: scale(0.36);
+  width: 1280px;
+  height: 800px;
+}
+
 @media (max-width: 767px) {
+
+  .project-preview { height: 165px; }
+  .project-preview.preview-tic iframe { transform: scale(0.34); }
+  .project-preview.preview-rps iframe { transform: scale(0.29); }
+  .project-preview.preview-interactive iframe { transform: scale(0.30); }
+
   .nav-inner { position: relative; }
   .nav-toggle { display: inline-flex; }
   .nav-links {
@@ -488,9 +498,8 @@ nav.menu-open .nav-toggle-lines::after { top: 6px; transform: rotate(-45deg); }
             <a href="https://github.com/Hasan-mahmud-22?tab=repositories" target="_blank" rel="noopener">Code ↗</a>
           </div>
         </div>
-        <a class="project-preview" href="/game/" data-game-link target="_blank" rel="noopener" aria-label="Open Interactive Drive Portfolio">
-          <iframe src="https://hasan-portfolio-game.vercel.app/" title="Interactive Drive Portfolio live preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
-          <span class="preview-badge">Live preview ↗</span>
+        <a class="project-preview preview-interactive" href="/game/" data-game-link target="_blank" rel="noopener" aria-label="Open Interactive Drive Portfolio">
+          <iframe src="https://hasan-portfolio-game.vercel.app/" title="Interactive Drive Portfolio live preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
         </a>
         <h3 class="project-title">Interactive Drive Portfolio</h3>
         <p class="project-desc">A game-inspired portfolio where visitors drive a car to explore stations. Built to stand out while showcasing creative frontend skills and interactive UX.</p>
@@ -509,9 +518,8 @@ nav.menu-open .nav-toggle-lines::after { top: 6px; transform: rotate(-45deg); }
             <a href="https://github.com/Hasan-mahmud-22?tab=repositories" target="_blank" rel="noopener">Code ↗</a>
           </div>
         </div>
-        <a class="project-preview" href="https://tic-tac-toe-game-two-jet.vercel.app/"  target="_blank" rel="noopener" aria-label="Open Tic Tac Toe">
-          <iframe src="https://tic-tac-toe-game-two-jet.vercel.app/" title="Tic Tac Toe live preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
-          <span class="preview-badge">Live preview ↗</span>
+        <a class="project-preview preview-tic" href="https://tic-tac-toe-game-two-jet.vercel.app/"  target="_blank" rel="noopener" aria-label="Open Tic Tac Toe">
+          <iframe src="https://tic-tac-toe-game-two-jet.vercel.app/" title="Tic Tac Toe live preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
         </a>
         <h3 class="project-title">Tic Tac Toe</h3>
         <p class="project-desc">Browser-based two-player game with turn switching, winner detection, and disabled completed cells. Includes new-game and reset controls for a complete replay flow.</p>
@@ -529,9 +537,8 @@ nav.menu-open .nav-toggle-lines::after { top: 6px; transform: rotate(-45deg); }
             <a href="https://github.com/Hasan-mahmud-22?tab=repositories" target="_blank" rel="noopener">Code ↗</a>
           </div>
         </div>
-        <a class="project-preview" href="https://rock-paper-scissors-vercel.vercel.app/"  target="_blank" rel="noopener" aria-label="Open Rock Paper Scissors">
-          <iframe src="https://rock-paper-scissors-vercel.vercel.app/" title="Rock Paper Scissors live preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
-          <span class="preview-badge">Live preview ↗</span>
+        <a class="project-preview preview-rps" href="https://rock-paper-scissors-vercel.vercel.app/"  target="_blank" rel="noopener" aria-label="Open Rock Paper Scissors">
+          <iframe src="https://rock-paper-scissors-vercel.vercel.app/" title="Rock Paper Scissors live preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
         </a>
         <h3 class="project-title">Rock Paper Scissors</h3>
         <p class="project-desc">Interactive game with randomized computer choices and real-time score tracking. Clean visual feedback for win, loss, and draw states.</p>
