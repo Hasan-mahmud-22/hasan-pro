@@ -163,6 +163,15 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   .profile-photo { box-shadow: none; border: 1px solid #ccc; }
 }
 @page { size: A4; margin: 16mm; }
+
+/* Email action safety */
+.hero-actions .btn-ghost,
+.contact-links a {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 10;
+}
+
 </style>
 </head>
 <body>
@@ -175,7 +184,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="https://hasanportfoliovercel.vercel.app/" target="_blank" rel="noopener">🎮 Interactive</a></li>
+      <li><a href="/game/" data-game-link target="_blank" rel="noopener">🎮 Interactive</a></li>
     </ul>
   </div>
 </nav>
@@ -187,7 +196,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
       <p class="hero-desc">3rd-year CSE student at CUET. Passionate about problem solving, data structures & algorithms, and competitive programming. Always learning, always building.</p>
       <div class="hero-actions">
         <a href="#projects" class="btn btn-primary">View My Work</a>
-        <a href="/cdn-cgi/l/email-protection#046c6577656a69656c69716036313d3534446369656d682a676b69" class="btn btn-ghost">Get in Touch</a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hasanmahmud25910@gmail.com&su=Portfolio%20Contact" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Get in Touch</a>
+        <a href="./Hasan_Mahmud_CV.pdf" download="Hasan_Mahmud_CV.pdf" class="btn btn-ghost">Download CV</a>
       </div>
     </div>
     <div class="hero-visual reveal">
@@ -232,7 +242,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffa116" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
             LeetCode
           </div>
-          <span class="platform-handle">@hasanmahmud</span>
+          <span class="platform-handle">@XYHU42fpHy</span>
         </div>
         <div class="platform-stats">
           <div class="p-stat"><div class="val" data-target="226">0</div><div class="lab">Solved</div></div>
@@ -244,7 +254,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
         <div class="diff-row"><span class="diff-name">Hard</span><div class="diff-track"><div class="diff-fill diff-h" data-width="0"></div></div><span class="diff-num">0</span></div>
         <div class="platform-footer">
           <span class="update-note">Primary: C++, MySQL</span>
-          <a href="https://leetcode.com/u/hasanmahmud/" target="_blank" rel="noopener">Profile →</a>
+          <a href="https://leetcode.com/u/XYHU42fpHy/" target="_blank" rel="noopener">Profile →</a>
         </div>
       </div>
       <div class="platform-card cf">
@@ -253,7 +263,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e8ddb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M9 9h6v6H9z"/></svg>
             Codeforces
           </div>
-          <span class="platform-handle">@hasanmahmud</span>
+          <span class="platform-handle">@Hasan_22</span>
         </div>
         <div class="platform-stats">
           <div class="p-stat"><div class="val" data-target="738">0</div><div class="lab">Rating</div></div>
@@ -265,7 +275,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
         </div>
         <div class="platform-footer">
           <span class="update-note">Climbing steadily</span>
-          <a href="https://codeforces.com/profile/hasanmahmud" target="_blank" rel="noopener">Profile →</a>
+          <a href="https://codeforces.com/profile/Hasan_22" target="_blank" rel="noopener">Profile →</a>
         </div>
       </div>
     </div>
@@ -328,8 +338,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
         <div class="project-top">
           <div class="project-icon">🎮</div>
           <div class="project-links">
-            <a href="https://hasanportfoliovercel.vercel.app/" target="_blank" rel="noopener">Live ↗</a>
-            <a href="https://github.com/hasanmahmud" target="_blank" rel="noopener">Code ↗</a>
+            <a href="/game/" data-game-link target="_blank" rel="noopener">Live ↗</a>
+            <a href="https://github.com/Hasan-mahmud-22?tab=repositories" target="_blank" rel="noopener">Code ↗</a>
           </div>
         </div>
         <h3 class="project-title">Interactive Drive Portfolio</h3>
@@ -345,8 +355,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
         <div class="project-top">
           <div class="project-icon">⭕</div>
           <div class="project-links">
-            <a href="#" target="_blank" rel="noopener">Live ↗</a>
-            <a href="https://github.com/hasanmahmud" target="_blank" rel="noopener">Code ↗</a>
+            <a href="https://tic-tac-toe-game-two-jet.vercel.app/" target="_blank" rel="noopener">Live ↗</a>
+            <a href="https://github.com/Hasan-mahmud-22?tab=repositories" target="_blank" rel="noopener">Code ↗</a>
           </div>
         </div>
         <h3 class="project-title">Tic Tac Toe</h3>
@@ -361,8 +371,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
         <div class="project-top">
           <div class="project-icon">✊</div>
           <div class="project-links">
-            <a href="#" target="_blank" rel="noopener">Live ↗</a>
-            <a href="https://github.com/hasanmahmud" target="_blank" rel="noopener">Code ↗</a>
+            <a href="https://rock-paper-scissors-vercel.vercel.app/" target="_blank" rel="noopener">Live ↗</a>
+            <a href="https://github.com/Hasan-mahmud-22?tab=repositories" target="_blank" rel="noopener">Code ↗</a>
           </div>
         </div>
         <h3 class="project-title">Rock Paper Scissors</h3>
@@ -395,11 +405,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
       <h3>Open for Opportunities</h3>
       <p>I am currently looking for internships, collaborative projects, and competitive programming communities to grow with.</p>
       <div class="contact-links">
-        <a href="/cdn-cgi/l/email-protection#40282133212e2d21282d3524727579717000272d21292c6e232f2d">Email</a>
-        <a href="https://github.com/hasanmahmud" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://leetcode.com/u/hasanmahmud/" target="_blank" rel="noopener">LeetCode</a>
-        <a href="https://codeforces.com/profile/hasanmahmud" target="_blank" rel="noopener">Codeforces</a>
-        <a href="https://hasanportfoliovercel.vercel.app/" target="_blank" rel="noopener">Interactive ↗</a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hasanmahmud25910@gmail.com&su=Portfolio%20Contact" target="_blank" rel="noopener noreferrer">Email</a>
+        <a href="https://github.com/Hasan-mahmud-22" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://leetcode.com/u/XYHU42fpHy/" target="_blank" rel="noopener">LeetCode</a>
+        <a href="https://codeforces.com/profile/Hasan_22" target="_blank" rel="noopener">Codeforces</a>
+        <a href="/game/" data-game-link target="_blank" rel="noopener">Interactive ↗</a>
       </div>
     </div>
   </section>
@@ -408,7 +418,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   <div class="container">
     <p>Hasan Mahmud — CUET CSE'27. Crafted with curiosity.</p>
   </div>
-</footer><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+</footer><script>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add("visible"); });
 }, { threshold: 0.1 });
@@ -441,5 +451,18 @@ const barObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 document.querySelectorAll(".diff-fill").forEach(bar => barObserver.observe(bar));
 </script>
+
+<script>
+(function () {
+  const gameUrl = window.location.protocol === "file:"
+    ? "https://hasan-portfolio-game.vercel.app/"
+    : "/game/";
+
+  document.querySelectorAll("[data-game-link]").forEach(function (link) {
+    link.setAttribute("href", gameUrl);
+  });
+})();
+</script>
+
 </body>
 </html>

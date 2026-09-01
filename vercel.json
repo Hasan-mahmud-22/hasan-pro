@@ -1,0 +1,28 @@
+{
+  "rewrites": [
+    {
+      "source": "/game",
+      "destination": "https://hasan-portfolio-game.vercel.app/"
+    },
+    {
+      "source": "/game/",
+      "destination": "https://hasan-portfolio-game.vercel.app/"
+    },
+    {
+      "source": "/game/:path*",
+      "destination": "https://hasan-portfolio-game.vercel.app/:path*"
+    },
+    {
+      "source": "/_next/:path*",
+      "destination": "https://hasan-portfolio-game.vercel.app/_next/:path*"
+    },
+    {
+      "source": "/hasan-mahmud-profile.png",
+      "destination": "https://hasan-portfolio-game.vercel.app/hasan-mahmud-profile.png"
+    },
+    {
+      "source": "/favicon.svg",
+      "destination": "https://hasan-portfolio-game.vercel.app/favicon.svg"
+    }
+  ]
+}
