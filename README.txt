@@ -1,12 +1,9 @@
-MAIN PORTFOLIO + CV
+9+ PORTFOLIO UPGRADE
 
-New feature:
-- Download CV button added beside Get in Touch.
-- CV PDF is included directly in this ZIP.
+Added:
+1. Live visual project previews in all 3 project cards.
+2. Proper favicon and Open Graph / Twitter social preview.
+3. Responsive mobile hamburger navigation.
+4. Existing CV, email, social links, and /game integration preserved.
 
-After deployment:
-Main: https://hasan-pro.vercel.app/
-Interactive: https://hasan-pro.vercel.app/game/
-CV: https://hasan-pro.vercel.app/Hasan_Mahmud_CV.pdf
-
-The Download CV button uses the browser download attribute.
+Deploy all files in this folder to the hasan-pro GitHub repository.

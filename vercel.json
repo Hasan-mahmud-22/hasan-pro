@@ -19,10 +19,6 @@
     {
       "source": "/hasan-mahmud-profile.png",
       "destination": "https://hasan-portfolio-game.vercel.app/hasan-mahmud-profile.png"
-    },
-    {
-      "source": "/favicon.svg",
-      "destination": "https://hasan-portfolio-game.vercel.app/favicon.svg"
     }
   ]
 }
