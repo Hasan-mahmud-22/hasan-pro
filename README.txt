@@ -1,8 +1,8 @@
-FINAL CLEAN VERSION
+DYNAMIC + THUMBNAIL FIX VERSION
 
-Requested fixes:
-- Removed "Engineer" wording from title/social preview.
-- Removed "competitive programming" wording from public portfolio copy.
-- Replaced project preview images with clean static covers.
-- Removed all preview overlay text to prevent overwrite/overlap.
-- Existing links, CV, mobile menu, SEO, favicon and /game routing preserved.
+Changes:
+- Tic Tac Toe project thumbnail fitted properly (no cut-off).
+- Rock Paper Scissors project thumbnail redesigned for better clarity.
+- Coding Platforms section enhanced with dynamic animations:
+  count-up, staggered stat entry, shimmer, glow and badge animation.
+- Existing CV, links, mobile nav, SEO and /game integration preserved.
