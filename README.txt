@@ -1,16 +1,13 @@
-9+ PORTFOLIO UPGRADE
+PORTFOLIO 9.5 OPTIMIZATION
 
-Added:
-1. Live visual project previews in all 3 project cards.
-2. Proper favicon and Open Graph / Twitter social preview.
-3. Responsive mobile hamburger navigation.
-4. Existing CV, email, social links, and /game integration preserved.
+Upgrades:
+- Removed all project iframes.
+- Added 3 static WebP project thumbnails.
+- Extracted embedded profile photo into a cacheable WebP image.
+- Added lazy loading + async decoding for project images.
+- Rewrote project descriptions to focus on outcomes and engineering value.
+- Added content-visibility optimization for below-the-fold sections.
+- Preserved mobile hamburger nav, favicon, Open Graph preview, CV, email,
+  social links, and /game integration.
 
-Deploy all files in this folder to the hasan-pro GitHub repository.
-
-
-Preview fix:
-- Removed preview badge overlay.
-- Hidden iframe scrollbars.
-- Added per-project scaling to prevent overflow.
-- Added mobile preview sizing.
+Upload every file in this folder to the hasan-pro repository.
